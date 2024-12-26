@@ -13,6 +13,14 @@ def rgb_to_gray(image):
             gray[row][col] = np.average(image[row][col])
     return gray
 
+
+	
+#---------------------------------------------------	
+#Gaussian smoothing : Application du filtre Gaussian
+#---------------------------------------------------
+
+
+
 def apply_gaussian_blur(image, kernel_size):
     def gaussian_kernel(size, sigma):
         kernel = np.fromfunction(
@@ -45,6 +53,13 @@ def apply_gaussian_blur(image, kernel_size):
 
     # get the image without the padding
     return output[k_half:rows-k_half, k_half:cols-k_half]
+	
+	
+	
+#---------------------------------------------------------------	
+#Gradient Calculation: Calcul du gradient d'intensité de l'image
+#---------------------------------------------------------------
+
 
 
 def compute_gradient_magnitude_and_orientation(image, sobel_kernel_size):
@@ -82,6 +97,13 @@ def compute_gradient_magnitude_and_orientation(image, sobel_kernel_size):
 
     return magnitude, orientation
 
+
+#-----------------------------------------------------
+#Non-Maximum Suppression: Suppression des non-maxima :
+#-----------------------------------------------------
+
+
+
 def apply_non_max_suppression(magnitude, orientation):
     # Apply non-maximum suppression to the gradient magnitude
     # This will thin the edges by keeping only the local maxima
@@ -110,6 +132,13 @@ def apply_non_max_suppression(magnitude, orientation):
     
     return suppressed_magnitude
 
+
+#-------------------------------------------------------------
+#Edge Tracking by Hysteresis:suivi des contours par hystérésis
+#-------------------------------------------------------------
+
+
+
 def apply_edge_tracking_by_hysteresis(magnitude, low_threshold, high_threshold):
     # Apply edge tracking by hysteresis to detect strong and weak edges
     rows, cols = magnitude.shape
@@ -127,6 +156,8 @@ def apply_edge_tracking_by_hysteresis(magnitude, low_threshold, high_threshold):
             edge_map[i, j] = 255
     
     return edge_map
+
+#---------------------------------------------------------------------------------------------------------------------------------------
 
 def canny_edge_detection(image, low_threshold, high_threshold, gaussian_kernel_size=5, sobel_kernel_size=3):
     print("Applying gaussian filter (for noise reduction) with kernel_size=" + str(gaussian_kernel_size) + "...")
