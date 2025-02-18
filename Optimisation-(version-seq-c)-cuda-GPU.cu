@@ -122,4 +122,24 @@ __global__ void sobelEdgeKernelShared(unsigned char *blured_pixels, unsigned cha
 
 int main() {
    // the main -----------------------
+    if(argc < 2){
+    perror("Usage `./sobel filename.png");
+    return 1;
+	/! ------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  }
 }
