@@ -121,6 +121,5 @@ __global__ void sobelEdgeKernelShared(unsigned char *blured_pixels, unsigned cha
 }
 
 int main() {
-    // Same as original, but with unsigned char arrays for grayscale and blurring
-    return 0;
+   // the main -----------------------
 }
